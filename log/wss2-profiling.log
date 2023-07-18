@@ -1,0 +1,94 @@
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `bmb`.`boxesid`, `mb`.`masterBoxId`, `mb`.`masterBoxname`, `bmb`.`OperatorId` AS `operatorId`, `bmb`.`GradeId` AS `gradeId`, `mpn`.`NetworkID` AS `networkId`, `mpn`.`NetworkName` AS `networkName`, `pg`.`GradeName` AS `gradeName`, `ma`.`manufacturerId`, `ma`.`name` AS `manufacturerName` FROM `boxesmasterbox` `bmb` LEFT JOIN `MasterBox` `mb` ON mb.masterBoxId = bmb.masterBoxId LEFT JOIN `mobilephonenetwork` `mpn` ON bmb.OperatorId = mpn.NetworkID LEFT JOIN `phonegrade` `pg` ON pg.PhoneGradeId = bmb.GradeId LEFT JOIN `manufacturer` `ma` ON mb.manufacturer = ma.manufacturerId WHERE mb.masterBoxId = '5051124139997'
+    in /var/www/wss2/common/models/Box.php:1790
+    in /var/www/wss2/common/lib/base/uk/Box.php:179
+    in /var/www/wss2/common/lib/base/uk/Box.php:56
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `bmb`.`boxesid`, `mb`.`masterBoxId`, `mb`.`masterBoxname`, `bmb`.`OperatorId` AS `operatorId`, `bmb`.`GradeId` AS `gradeId`, `mpn`.`NetworkID` AS `networkId`, `mpn`.`NetworkName` AS `networkName`, `pg`.`GradeName` AS `gradeName`, `ma`.`manufacturerId`, `ma`.`name` AS `manufacturerName` FROM `boxesmasterbox` `bmb` LEFT JOIN `MasterBox` `mb` ON mb.masterBoxId = bmb.masterBoxId LEFT JOIN `mobilephonenetwork` `mpn` ON bmb.OperatorId = mpn.NetworkID LEFT JOIN `phonegrade` `pg` ON pg.PhoneGradeId = bmb.GradeId LEFT JOIN `manufacturer` `ma` ON mb.manufacturer = ma.manufacturerId WHERE mb.masterBoxId = '5051124139997'
+    in /var/www/wss2/common/models/Box.php:1790
+    in /var/www/wss2/common/lib/base/uk/Box.php:179
+    in /var/www/wss2/common/lib/base/uk/Box.php:56
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `bmb`.`masterboxid` AS `masterBoxId`, `mb`.`masterBoxName` FROM `boxesmasterbox` `bmb` LEFT JOIN `masterbox` `mb` ON mb.masterBoxId = bmb.masterBoxId WHERE boxesId = '5051124139997'
+    in /var/www/wss2/common/models/Box.php:1966
+    in /var/www/wss2/common/lib/base/uk/Box.php:234
+    in /var/www/wss2/common/lib/base/uk/Box.php:56
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `bmb`.`masterboxid` AS `masterBoxId`, `mb`.`masterBoxName` FROM `boxesmasterbox` `bmb` LEFT JOIN `masterbox` `mb` ON mb.masterBoxId = bmb.masterBoxId WHERE boxesId = '5051124139997'
+    in /var/www/wss2/common/models/Box.php:1966
+    in /var/www/wss2/common/lib/base/uk/Box.php:234
+    in /var/www/wss2/common/lib/base/uk/Box.php:56
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT UPPER(b.box_id) as boxId,bxmx.masterBoxId,bxmx.GradeID as gradeId,bxmx.OperatorID as operatorId,b.box_name as boxName,c.category_id as categoryId,c.box_category as categoryName,es.BuyPerc as buyPerc,es.ExchangePerc as exchangePerc,cd.friendlyname as categoryFriendlyName,sc.SCID as superCatId,sc.Name as superCatName,sc.FriendlyName as superCatFriendlyName,b.discontinued,b.new,bo.Rating as rating,bo.LongDescription as boxDescription,bp.SellPrice as maxOfSellPrice,bp.CashBuyPrice as minOfCashPrice,bp.ExchangePrice as minOfExchangePrice,pl.ProductLineID as productLineId,c.WebSaleAllowed as webSellAllowed,c.WebBuyAllowed as webBuyAllowed,c.WebShowSellPrice as webShowSellPrice,c.WebShowBuyPrice as webShowBuyPrice,mbx.masterBoxName,bo.ConditionText as boxRatingText,bo.firstPrice as firstPrice,bo.previousPrice as previousPrice,bo.priceLastChanged as lastPriceUpdatedDate,bpcv.CashBuyPrice as cashPriceCalculated,bpcv.ExchangePrice as exchangePriceCalculated,b.SaleAllowed as boxSaleAllowed,b.BuyAllowed as boxBuyAllowed,b.WebSaleAllowed as boxWebSaleAllowed,b.WebBuyAllowed as boxWebBuyAllowed FROM boxes b
+                INNER JOIN category c ON c.box_category = b.box_category
+                INNER JOIN categorydetail cd ON cd.categoryID = c.category_id
+                INNER JOIN productlinecat plc ON c.category_id = plc.categoryid
+                INNER JOIN productline pl ON plc.productlineid = pl.productlineid
+                INNER JOIN supercat sc ON c.scid = sc.scid
+                INNER JOIN boxprice bp ON b.box_id = bp.BoxID
+                INNER JOIN elasticity es ON bp.ElasticityID = es.ElasticityID INNER JOIN boxpricecalculated bpcv ON b.box_id = bpcv.BoxID
+                LEFT JOIN boxesonline bo ON bo.BoxID = b.box_id
+                LEFT JOIN boxesmasterbox bxmx on b.box_id = bxmx.boxesId
+                LEFT JOIN masterbox mbx on mbx.masterBoxId = bxmx.masterBoxId
+                WHERE b.box_id IN ('5051124139997') AND cd.ShowOnWWW = 1 AND sc.ShowOnWWW = 1 AND b.Box_Deleted = 0 AND plc.IsPrimary = 1 AND c.read_only = 0 GROUP BY b.box_id
+    in /var/www/wss2/common/models/Box.php:1155
+    in /var/www/wss2/common/lib/base/uk/Box.php:82
+    in /var/www/wss2/common/lib/Lib.php:80
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT UPPER(b.box_id) as boxId,bxmx.masterBoxId,bxmx.GradeID as gradeId,bxmx.OperatorID as operatorId,b.box_name as boxName,c.category_id as categoryId,c.box_category as categoryName,es.BuyPerc as buyPerc,es.ExchangePerc as exchangePerc,cd.friendlyname as categoryFriendlyName,sc.SCID as superCatId,sc.Name as superCatName,sc.FriendlyName as superCatFriendlyName,b.discontinued,b.new,bo.Rating as rating,bo.LongDescription as boxDescription,bp.SellPrice as maxOfSellPrice,bp.CashBuyPrice as minOfCashPrice,bp.ExchangePrice as minOfExchangePrice,pl.ProductLineID as productLineId,c.WebSaleAllowed as webSellAllowed,c.WebBuyAllowed as webBuyAllowed,c.WebShowSellPrice as webShowSellPrice,c.WebShowBuyPrice as webShowBuyPrice,mbx.masterBoxName,bo.ConditionText as boxRatingText,bo.firstPrice as firstPrice,bo.previousPrice as previousPrice,bo.priceLastChanged as lastPriceUpdatedDate,bpcv.CashBuyPrice as cashPriceCalculated,bpcv.ExchangePrice as exchangePriceCalculated,b.SaleAllowed as boxSaleAllowed,b.BuyAllowed as boxBuyAllowed,b.WebSaleAllowed as boxWebSaleAllowed,b.WebBuyAllowed as boxWebBuyAllowed FROM boxes b
+                INNER JOIN category c ON c.box_category = b.box_category
+                INNER JOIN categorydetail cd ON cd.categoryID = c.category_id
+                INNER JOIN productlinecat plc ON c.category_id = plc.categoryid
+                INNER JOIN productline pl ON plc.productlineid = pl.productlineid
+                INNER JOIN supercat sc ON c.scid = sc.scid
+                INNER JOIN boxprice bp ON b.box_id = bp.BoxID
+                INNER JOIN elasticity es ON bp.ElasticityID = es.ElasticityID INNER JOIN boxpricecalculated bpcv ON b.box_id = bpcv.BoxID
+                LEFT JOIN boxesonline bo ON bo.BoxID = b.box_id
+                LEFT JOIN boxesmasterbox bxmx on b.box_id = bxmx.boxesId
+                LEFT JOIN masterbox mbx on mbx.masterBoxId = bxmx.masterBoxId
+                WHERE b.box_id IN ('5051124139997') AND cd.ShowOnWWW = 1 AND sc.ShowOnWWW = 1 AND b.Box_Deleted = 0 AND plc.IsPrimary = 1 AND c.read_only = 0 GROUP BY b.box_id
+    in /var/www/wss2/common/models/Box.php:1155
+    in /var/www/wss2/common/lib/base/uk/Box.php:82
+    in /var/www/wss2/common/lib/Lib.php:80
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT t.*, group_concat(attrListItm.Value order by attrListItm.Value separator "##") as textValue FROM (SELECT attrName.AttributeID as attributeId, attrName.FriendlyName as attributeFriendlyName, attrName.Name as attributeName, attrName.DataTypeID as dataTypeId, group_concat(attrBoxVal.Value ORDER BY attrBoxVal.AttributeBoxValueId separator "##") as  attrBoxValue, attrBoxVal.AttributeListItemID as attributeListItemId, attrname.DisplayOrder FROM AttributeName attrName INNER JOIN AttributeDataType attrDataType ON (attrName.DataTypeID = attrDataType.DataTypeID) INNER JOIN AttributeCategory attrCat ON (attrName.AttributeID = attrCat.AttributeID) INNER JOIN AttributeBoxValue attrBoxVal ON (attrBoxVal.AttributeID = attrName.AttributeID) WHERE attrCat.ShowonWWW = 1 AND attrCat.InUse = 1 AND attrBoxVal.BoxID = '5051124139997' AND attrCat.CategoryID = '792' GROUP BY attrName.AttributeID, attrBoxVal.AttributeListItemID) as t LEFT JOIN AttributeListItem attrListItm ON (t.attributeListItemId = attrListItm.AttributeListItemID) GROUP BY t.AttributeID ORDER BY t.DisplayOrder ASC
+    in /var/www/wss2/common/models/Attribute.php:242
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:1984
+    in /var/www/wss2/common/lib/base/uk/Box.php:94
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT t.*, group_concat(attrListItm.Value order by attrListItm.Value separator "##") as textValue FROM (SELECT attrName.AttributeID as attributeId, attrName.FriendlyName as attributeFriendlyName, attrName.Name as attributeName, attrName.DataTypeID as dataTypeId, group_concat(attrBoxVal.Value ORDER BY attrBoxVal.AttributeBoxValueId separator "##") as  attrBoxValue, attrBoxVal.AttributeListItemID as attributeListItemId, attrname.DisplayOrder FROM AttributeName attrName INNER JOIN AttributeDataType attrDataType ON (attrName.DataTypeID = attrDataType.DataTypeID) INNER JOIN AttributeCategory attrCat ON (attrName.AttributeID = attrCat.AttributeID) INNER JOIN AttributeBoxValue attrBoxVal ON (attrBoxVal.AttributeID = attrName.AttributeID) WHERE attrCat.ShowonWWW = 1 AND attrCat.InUse = 1 AND attrBoxVal.BoxID = '5051124139997' AND attrCat.CategoryID = '792' GROUP BY attrName.AttributeID, attrBoxVal.AttributeListItemID) as t LEFT JOIN AttributeListItem attrListItm ON (t.attributeListItemId = attrListItm.AttributeListItemID) GROUP BY t.AttributeID ORDER BY t.DisplayOrder ASC
+    in /var/www/wss2/common/models/Attribute.php:242
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:1984
+    in /var/www/wss2/common/lib/base/uk/Box.php:94
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT UPPER(BoxID) AS `boxId`, `Value` AS `description` FROM `attributeboxvalue` WHERE (`AttributeID`=9) AND (`BoxID`='5051124139997')
+    in /var/www/wss2/common/models/Box.php:3001
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2036
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2798
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT UPPER(BoxID) AS `boxId`, `Value` AS `description` FROM `attributeboxvalue` WHERE (`AttributeID`=9) AND (`BoxID`='5051124139997')
+    in /var/www/wss2/common/models/Box.php:3001
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2036
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2798
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `boxid`, `branchID`, sum(qty) AS `alloc` FROM `allocation` `a` WHERE boxid IN ( '5051124139997' ) GROUP BY `boxid`, `branchID`
+    in /var/www/wss2/common/models/Box.php:2136
+    in /var/www/wss2/common/models/Box.php:2376
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2800
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `boxid`, `branchID`, sum(qty) AS `alloc` FROM `allocation` `a` WHERE boxid IN ( '5051124139997' ) GROUP BY `boxid`, `branchID`
+    in /var/www/wss2/common/models/Box.php:2136
+    in /var/www/wss2/common/models/Box.php:2376
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2800
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `b`.`box_id` AS `boxId`, SUM(bs.QuantityOnHand) AS `totalQuantity`, `bo`.`EcomAllowed` AS `ecomAllowed`, `bo`.`CollectionAllowed` AS `collectionAllowed` FROM `Boxes` `b` LEFT JOIN `boxstock` `bs` ON bs.Boxid = b.box_id INNER JOIN `LocnBranchLiveOnes` `lblo` ON bs.LocationID = lblo.LocationID INNER JOIN `branchesonline` `bo` ON lblo.branchid = bo.Branchid WHERE (b.box_id IN ( '5051124139997' )) AND (b.SaleAllowed = 1) GROUP BY `b`.`box_id`, `bo`.`EcomAllowed`, `bo`.`CollectionAllowed`
+    in /var/www/wss2/common/models/Box.php:2204
+    in /var/www/wss2/common/models/Box.php:2376
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2800
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `b`.`box_id` AS `boxId`, SUM(bs.QuantityOnHand) AS `totalQuantity`, `bo`.`EcomAllowed` AS `ecomAllowed`, `bo`.`CollectionAllowed` AS `collectionAllowed` FROM `Boxes` `b` LEFT JOIN `boxstock` `bs` ON bs.Boxid = b.box_id INNER JOIN `LocnBranchLiveOnes` `lblo` ON bs.LocationID = lblo.LocationID INNER JOIN `branchesonline` `bo` ON lblo.branchid = bo.Branchid WHERE (b.box_id IN ( '5051124139997' )) AND (b.SaleAllowed = 1) GROUP BY `b`.`box_id`, `bo`.`EcomAllowed`, `bo`.`CollectionAllowed`
+    in /var/www/wss2/common/models/Box.php:2204
+    in /var/www/wss2/common/models/Box.php:2376
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2800
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `cpg`.`ProductLineID` AS `productLineId`, `cpg`.`HTML` AS `productGuideDescription`, (CASE WHEN cpg.HTML IS NULL THEN (SELECT cpg.HTML FROM cex_product_guide cpg WHERE ProductLineID = -1) ELSE "" END) AS `globalGuide`, `cpg`.`ShowInBuyFromCex` AS `showInWeBuy`, `cpg`.`ShowInSellToCex` AS `showInWeSell` FROM `cex_product_guide` `cpg` WHERE ProductLineID = '81'
+    in /var/www/wss2/common/models/Box.php:1932
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2907
+    in /var/www/wss2/common/lib/base/uk/Box.php:117
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `cpg`.`ProductLineID` AS `productLineId`, `cpg`.`HTML` AS `productGuideDescription`, (CASE WHEN cpg.HTML IS NULL THEN (SELECT cpg.HTML FROM cex_product_guide cpg WHERE ProductLineID = -1) ELSE "" END) AS `globalGuide`, `cpg`.`ShowInBuyFromCex` AS `showInWeBuy`, `cpg`.`ShowInSellToCex` AS `showInWeSell` FROM `cex_product_guide` `cpg` WHERE ProductLineID = '81'
+    in /var/www/wss2/common/models/Box.php:1932
+    in /var/www/wss2/common/lib/base/commonLib/Box.php:2907
+    in /var/www/wss2/common/lib/base/uk/Box.php:117
+2023-07-18 10:53:43 [profile begin][yii\db\Command::query] SELECT `AttributeID`, `Value` FROM `attributeboxvalue` WHERE (`AttributeID` IN (2362, 2364, 2224)) AND (`BoxID`='5051124139997') ORDER BY LENGTH(Value), Value
+    in /var/www/wss2/common/models/Attribute.php:377
+    in /var/www/wss2/common/components/Genutils.php:2160
+    in /var/www/wss2/common/lib/base/uk/Box.php:133
+2023-07-18 10:53:43 [profile end][yii\db\Command::query] SELECT `AttributeID`, `Value` FROM `attributeboxvalue` WHERE (`AttributeID` IN (2362, 2364, 2224)) AND (`BoxID`='5051124139997') ORDER BY LENGTH(Value), Value
+    in /var/www/wss2/common/models/Attribute.php:377
+    in /var/www/wss2/common/components/Genutils.php:2160
+    in /var/www/wss2/common/lib/base/uk/Box.php:133

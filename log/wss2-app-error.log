@@ -1,0 +1,4 @@
+2023-07-18 09:32:07 [172.18.0.1][-][-][error][appLogs] [PID:101][COMPANY:cex][COUNTRY:UK][LOG_DATA:{"method":"common\\models\\Box::checkForMasterBox","line":1806,"message":"EXCEPTION","data":{"error":"SQLSTATE[HY000] [2002] Connection timed out","action":"Checking masterboxes for boxIds","inputData":{"boxId":"5051124139997"},"requestUri":"/v3/boxes/5051124139997/detail"}}]
+    in /var/www/wss2/common/components/WssLog.php:144
+    in /var/www/wss2/common/models/Box.php:1806
+    in /var/www/wss2/common/lib/base/uk/Box.php:179
